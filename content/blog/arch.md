@@ -1,7 +1,7 @@
 +++
-title = "My first post"
-date = 2019-11-27
+title = "Arch Installation Guide"
 +++
 
-This is my first blog post.
+This guide will show step-by-step how to Install Arch Linux on UEFI mode like a Chad.
+
 

@@ -1,0 +1,14 @@
+:root {
+	--bg-color: #edf1f2;
+
+
+
+
+}
+
+body{
+	background-color: var(--bg-color);
+
+
+
+}

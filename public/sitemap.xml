@@ -3,4 +3,11 @@
     <url>
         <loc>https://linuxchad.xyz/</loc>
     </url>
+    <url>
+        <loc>https://linuxchad.xyz/blog/</loc>
+    </url>
+    <url>
+        <loc>https://linuxchad.xyz/blog/arch/</loc>
+        <lastmod>2019-11-27</lastmod>
+    </url>
 </urlset>

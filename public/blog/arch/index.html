@@ -10,7 +10,7 @@
 
 <body>
  <header>
-		<h1>Chad's Home</h1>
+		<h1>Kyle Flores</h1>
 	<nav>
 		<span>[<a href="/">Home</a>]</span>
 		<span>[<a href="/about">About</a>]</span>
@@ -28,15 +28,12 @@
 <p>This guide will show step-by-step how to Install Arch Linux on UEFI mode like a Chad.</p>
 <hr />
 <h2 id="bootable-flash-drive">Bootable Flash Drive</h2>
-<p>First of all, you need the Arch Linux image, that can be downloaded from the <a href="https://www.archlinux.org/download/">Official Website</a>.
-After that, you should create the bootable flash drive.</p>
-<p>If you're on a GNU/linux distribution, you can use the <code>dd</code> command for it.</p>
+<h3 id="1-download-arch-linux-iso">1. Download Arch Linux ISO</h3>
+<p><a href="https://www.archlinux.org/download/">Official Website</a></p>
+<h3 id="2-in-cli-execute-dd-command-to-flash-iso">2. In cli, execute 'dd' command to flash ISO</h3>
 <pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">$</span><span> dd bs=4M if=/path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync &amp;&amp; </span><span style="color:#bf616a;">sync
 </span></code></pre>
-<blockquote>
-<p>Note that you need to update the <code>of=/dev/sdx</code> with your USB device location (it can be discovered with the <code>lsblk</code> command).</p>
-</blockquote>
-<p>Otherwise, if you're on Windows, you can follow this <a href="https://wiki.archlinux.org/index.php/USB_flash_installation_media#In_Windows">tutorial</a>.</p>
+<h3 id="3-in-gui-execute-usbimager-as-root-to-flash-iso">3. In GUI, execute 'usbimager' as root to flash ISO</h3>
 <hr />
 <h2 id="bios">BIOS</h2>
 <p>We'll install Arch on UEFI mode, so you should enable the UEFI mode and disable the secure boot option on your BIOS system.</p>

@@ -7,16 +7,15 @@ This guide will show step-by-step how to Install Arch Linux on UEFI mode like a 
 ---
 
 ## Bootable Flash Drive
-First of all, you need the Arch Linux image, that can be downloaded from the [Official Website](https://www.archlinux.org/download/).
-After that, you should create the bootable flash drive.
 
-If you're on a GNU/linux distribution, you can use the `dd` command for it.
+### 1. Download Arch Linux ISO
+[Official Website](https://www.archlinux.org/download/)
+
+### 2. In cli, execute 'dd' command to flash ISO
 ```sh
 $ dd bs=4M if=/path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync && sync
 ```
-> Note that you need to update the `of=/dev/sdx` with your USB device location (it can be discovered with the `lsblk` command).
-
-Otherwise, if you're on Windows, you can follow this [tutorial](https://wiki.archlinux.org/index.php/USB_flash_installation_media#In_Windows).
+### 3. In GUI, execute 'usbimager' as root to flash ISO
 
 ---
 

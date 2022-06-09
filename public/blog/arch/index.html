@@ -26,6 +26,75 @@
 </h1>
 <p class="subtitle"><strong></strong></p>
 <p>This guide will show step-by-step how to Install Arch Linux on UEFI mode like a Chad.</p>
+<hr />
+<h2 id="bootable-flash-drive">Bootable Flash Drive</h2>
+<p>First of all, you need the Arch Linux image, that can be downloaded from the <a href="https://www.archlinux.org/download/">Official Website</a>.
+After that, you should create the bootable flash drive.</p>
+<p>If you're on a GNU/linux distribution, you can use the <code>dd</code> command for it.</p>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">$</span><span> dd bs=4M if=/path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync &amp;&amp; </span><span style="color:#bf616a;">sync
+</span></code></pre>
+<blockquote>
+<p>Note that you need to update the <code>of=/dev/sdx</code> with your USB device location (it can be discovered with the <code>lsblk</code> command).</p>
+</blockquote>
+<p>Otherwise, if you're on Windows, you can follow this <a href="https://wiki.archlinux.org/index.php/USB_flash_installation_media#In_Windows">tutorial</a>.</p>
+<hr />
+<h2 id="bios">BIOS</h2>
+<p>We'll install Arch on UEFI mode, so you should enable the UEFI mode and disable the secure boot option on your BIOS system.</p>
+<blockquote>
+<p>Also remember to change the boot order to boot through your USB device.</p>
+</blockquote>
+<hr />
+<h2 id="pre-installation">Pre installation</h2>
+<p>I'm presuming that you're already in the Arch Linux zsh shell prompt.</p>
+<h3 id="1-check-boot-mode">1. Check boot mode</h3>
+<p>To check if the UEFI mode is enabled, run:</p>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#65737e;"># ls /sys/firmware/efi/efivars
+</span></code></pre>
+<p>If the directory does not exists, the system may be booted in BIOS.</p>
+<h3 id="2-update-system-clock">2. Update System Clock</h3>
+<p>Ensures that the system clock is accurate.</p>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#65737e;"># timedatectl set-ntp true
+</span></code></pre>
+<h3 id="3-connect-to-a-wifi-network">3. Connect to a Wifi Network</h3>
+<p>First, test if you alredy have wifi connection, so run:</p>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#65737e;"># ping google.com
+</span></code></pre>
+<p>If you're not connected, follow one of these steps:</p>
+<h4 id="connect-to-wifi-with-iwd">Connect to Wifi with iwd</h4>
+<ol>
+<li>
+<p>Check network interface name</p>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#65737e;"># ip link
+</span></code></pre>
+<p>The response will be something like:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span> 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT
+</span><span>     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+</span><span> 2: enp2s0f0: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN mode DEFAULT qlen 1000
+</span><span>     link/ether 00:11:25:31:69:20 brd ff:ff:ff:ff:ff:ff
+</span><span> 3: wlp3s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP mode DORMANT qlen 1000
+</span><span>     link/ether 01:02:03:04:05:06 brd ff:ff:ff:ff:ff:ff
+</span></code></pre>
+</li>
+<li>
+<p>Run iwd</p>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#65737e;"># iwctl
+</span></code></pre>
+<p>if $interface is off, then <code>quit</code> iwd and run:</p>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#65737e;"># rfkill unblock all
+</span><span style="color:#65737e;"># ip link set $interface up
+</span></code></pre>
+</li>
+<li>
+<p>Connect to wifi SSID</p>
+<p>run <code>device list</code> to list all network interface and run the following commands:</p>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#65737e;"># station $interface scan
+</span><span style="color:#65737e;"># station $interface get-networks
+</span><span style="color:#65737e;"># station $interface connect SSID
+</span></code></pre>
+<p>enter your wifi password</p>
+</li>
+</ol>
+<hr />
 
 
     	</main>

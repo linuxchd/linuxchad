@@ -10,7 +10,18 @@
 body{
 	background-color: var(--bg-color);
 	color: var(--fg-color);
+	padding: 1em;
+	max-width: 2000px;
+	margin: auto;
+	line-height: 1.4em;
+}
 
+#header-quote{
+    font-family: 'Marck Script', cursive;
+    line-height: 1.5em;
+    font-size: 130%;
+}
 
-
+blockquote span{
+    margin-left: 1%;
 }

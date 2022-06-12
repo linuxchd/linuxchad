@@ -40,7 +40,6 @@ a:hover{
 main{
     padding: 20px;
     max-width: 900px;
-    border-bottom: 2px solid var(--color00);
 }
 
 

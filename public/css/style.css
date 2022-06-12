@@ -1,8 +1,13 @@
 :root {
 	--bg-color: #000;
 	--fg-color: #ffffff;
-
-
+  	--color00: #E1578A;
+        --color01: #FF69EB;
+        --color02: #FF86C8;
+        --color03: #FFA3A5;
+        --color04: #FFBF81;
+        --color05: #FFDC5E;
+        --color06: #FDFF8F;
 
 
 }
@@ -14,7 +19,33 @@ body{
 	max-width: 2000px;
 	margin: auto;
 	line-height: 1.4em;
+	font-family: 'Lora', serif;
 }
+
+
+/** Elements **/
+
+a{
+    text-decoration: none;
+    color: var(--color01);
+}
+
+a:hover{
+    text-decoration: underline;
+    color: var(--color02);
+}
+
+
+/** main section **/
+main{
+    padding: 20px;
+    max-width: 900px;
+    border-bottom: 2px solid var(--color00);
+}
+
+
+
+
 
 #header-quote{
     font-family: 'Marck Script', cursive;
@@ -24,4 +55,9 @@ body{
 
 blockquote span{
     margin-left: 1%;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Chonburi', cursive;
+    color: var(--color03);
 }
